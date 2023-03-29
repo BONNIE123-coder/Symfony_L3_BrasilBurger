@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boisson index{% endblock %}
+
+{% block body %}
+    <h1>Boisson index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Image</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for boisson in boissons %}
+            <tr>
+                <td>{{ boisson.id }}</td>
+                <td>{{ boisson.libelle }}</td>
+                <td>{{ boisson.image }}</td>
+                <td>{{ boisson.prix }}</td>
+                <td>
+                    <a href="{{ path('boisson_show', {'id': boisson.id}) }}">show</a>
+                    <a href="{{ path('boisson_edit', {'id': boisson.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('boisson_new') }}">Create new</a>
+{% endblock %}

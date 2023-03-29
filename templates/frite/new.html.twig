@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Frite{% endblock %}
+
+{% block body %}
+    <h1>Create new Frite</h1>
+
+    {{ include('frite/_form.html.twig') }}
+
+    <a href="{{ path('frite_index') }}">back to list</a>
+{% endblock %}

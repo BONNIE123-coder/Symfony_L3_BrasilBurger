@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Frite{% endblock %}
+
+{% block body %}
+    <h1>Frite</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ frite.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ frite.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ frite.image }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ frite.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('frite_index') }}">back to list</a>
+
+    <a href="{{ path('frite_edit', {'id': frite.id}) }}">edit</a>
+
+    {{ include('frite/_delete_form.html.twig') }}
+{% endblock %}

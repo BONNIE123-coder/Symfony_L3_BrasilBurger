@@ -1,0 +1,39 @@
+
+
+{% block title %}Burger index{% endblock %}
+
+{% block body %}
+    <h1>Burger index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Image</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for burger in burgers %}
+            <tr>
+                <td>{{ burger.id }}</td>
+                <td>{{ burger.libelle }}</td>
+                <td>{{ burger.image }}</td>
+                <td>{{ burger.prix }}</td>
+                <td>
+                    <a href="{{ path('burger_show', {'id': burger.id}) }}">show</a>
+                    <a href="{{ path('burger_edit', {'id': burger.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('burger_new') }}">Create new</a>
+{% endblock %}
